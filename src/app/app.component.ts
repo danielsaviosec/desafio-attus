@@ -14,10 +14,10 @@ import { PostsStore } from './state/posts.store';
     MatCardModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   readonly title = 'Boilerplate Angular 17';
