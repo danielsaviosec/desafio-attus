@@ -20,9 +20,9 @@ export class PessoaRxjsExerciseComponent implements OnInit {
       .buscarPorId(pessoaId)
       .pipe(
         switchMap((pessoa) =>
-          this.pessoaService.buscarQuantidadeFamiliares(pessoaId).pipe(
-            map((qtd) => ({ pessoa, qtd })),
-          ),
+          this.pessoaService
+            .buscarQuantidadeFamiliares(pessoaId)
+            .pipe(map((qtd) => ({ pessoa, qtd }))),
         ),
         takeUntilDestroyed(this.destroyRef),
       )
