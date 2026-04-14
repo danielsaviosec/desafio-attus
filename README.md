@@ -13,9 +13,18 @@ Projeto base em Angular 17 na raiz do repositório com:
 
 - `npm start`: sobe ambiente de desenvolvimento.
 - `npm run build`: gera build de produção.
+- `npm run lint`: executa lint com ESLint (Angular).
+- `npm run lint:fix`: corrige problemas de lint automaticamente.
+- `npm run format`: aplica Prettier no projeto.
 - `npm test`: executa testes unitários.
 - `npm run sonar:prepare`: gera cobertura para o Sonar.
 - `npm run sonar:scan`: executa o scanner Sonar.
+
+## Docker
+
+- `docker compose up --build`: sobe o app em modo desenvolvimento na porta `4200`.
+- `docker compose --profile prod up --build app-prod`: sobe build de produção com Nginx na porta `8080`.
+- `docker compose down`: encerra os containers.
 
 ## Sonar
 
