@@ -14,7 +14,7 @@ interface PostsState {
 const initialState: PostsState = {
   items: [],
   loading: false,
-  error: null
+  error: null,
 };
 
 function getErrorMessage(error: unknown): string {
@@ -39,10 +39,10 @@ export const PostsStore = signalStore(
               patchState(store, { items: [], error: getErrorMessage(error) });
               return EMPTY;
             }),
-            finalize(() => patchState(store, { loading: false }))
-          )
-        )
-      )
-    )
-  }))
+            finalize(() => patchState(store, { loading: false })),
+          ),
+        ),
+      ),
+    ),
+  })),
 );
