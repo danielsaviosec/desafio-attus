@@ -1,0 +1,9 @@
+.git
+.gitignore
+.husky
+.scannerwork
+.vscode
+coverage
+dist
+node_modules
+npm-debug.log
