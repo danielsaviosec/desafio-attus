@@ -23,7 +23,7 @@ Projeto base em Angular 17 na raiz do repositório com:
 ## Docker
 
 - `docker compose up --build`: sobe o app em modo desenvolvimento na porta `4200`.
-- `docker compose --profile prod up --build app-prod`: sobe build de produção com Nginx na porta `8080`.
+- `docker compose --profile main up --build app-main`: sobe build de produção com Nginx na porta `8080`.
 - `docker compose down`: encerra os containers.
 
 ## Sonar

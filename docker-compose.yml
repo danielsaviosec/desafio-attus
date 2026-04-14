@@ -10,11 +10,11 @@ services:
       - /app/node_modules
     command: npm start -- --host 0.0.0.0 --poll 2000
 
-  app-prod:
+  app-main:
     build:
       context: .
       target: production
     ports:
       - '8080:80'
     profiles:
-      - prod
+      - main
