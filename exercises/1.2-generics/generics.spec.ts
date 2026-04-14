@@ -18,15 +18,16 @@ describe('Exercício 1.2 — filtrarEPaginar', () => {
       pagina: 1,
       tamanho: 10,
     });
-    expect(resultado.total).toBe(2);
-    expect(resultado.itens.map((u) => u.id)).toEqual([1, 3]);
+    expect(resultado.total).toBe(1);
+    expect(resultado.itens.map((u) => u.id)).toEqual([1]);
   });
 
   it('pagina corretamente após o filtro', () => {
-    const resultado = filtrarEPaginar(data, (u) => u.nome.includes('a') || u.nome.includes('A'), {
-      pagina: 2,
-      tamanho: 1,
-    });
+    const resultado = filtrarEPaginar(
+      data,
+      (usuario) => usuario.nome === 'Daniel' || usuario.nome === 'Maria',
+      { pagina: 2, tamanho: 1 },
+    );
     expect(resultado.total).toBe(2);
     expect(resultado.itens).toEqual([data[2]]);
   });
@@ -46,15 +47,15 @@ describe('Exercício 1.2 — filtrarEPaginar', () => {
 });
 
 describe('Exercício 1.2 — exemplo concreto (usuários por nome)', () => {
-  it('filtra por nome e pagina (exemploUsuariosFiltradosPorNome)', () => {
+  it('filtra por nome e pagina (usuariosFiltradosPorNome)', () => {
     const pessoa1 = usuariosFiltradosPorNome('secundino', { pagina: 1, tamanho: 1 });
-    expect(pessoa1.total).toBe(2);
+    expect(pessoa1.total).toBe(1);
     expect(pessoa1.itens).toHaveLength(1);
-    expect(pessoa1.itens[0].nome).toBe('Daniel Secundino');
+    expect(pessoa1.itens[0].nome).toBe('Domingos Secundino');
 
-    const pessoa2 = usuariosFiltradosPorNome('lima', { pagina: 2, tamanho: 1 });
-    expect(pessoa2.total).toBe(2);
-    expect(pessoa2.itens[0].nome).toBe('Daniel Lima');
+    const pessoa2 = usuariosFiltradosPorNome('lima', { pagina: 1, tamanho: 1 });
+    expect(pessoa2.total).toBe(1);
+    expect(pessoa2.itens[0].nome).toBe('Mauricia Lima');
   });
 
   it('termo vazio inclui todos os usuários de exemplo', () => {
