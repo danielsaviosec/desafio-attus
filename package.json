@@ -14,7 +14,6 @@
     "test": "jest --watchman=false",
     "test:watch": "jest --watch --watchman=false",
     "test:coverage": "jest --coverage --runInBand --watchman=false",
-    "test:exercises": "jest --config jest.exercises.config.js --watchman=false",
     "sonar:prepare": "npm run test:coverage",
     "sonar:scan": "sonar-scanner",
     "prepare": "husky"
