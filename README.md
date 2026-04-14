@@ -14,6 +14,18 @@ Projeto base em Angular 17 na raiz do repositório com:
 - `npm start`: sobe ambiente de desenvolvimento.
 - `npm run build`: gera build de produção.
 - `npm test`: executa testes unitários.
+- `npm run sonar:prepare`: gera cobertura para o Sonar.
+- `npm run sonar:scan`: executa o scanner Sonar.
+
+## Sonar
+
+O projeto foi configurado com `sonar-project.properties` na raiz, usando:
+
+- fontes em `src`
+- testes `*.spec.ts`
+- cobertura em `coverage/lcov.info` (Jest)
+
+Antes do scan, rode `npm run sonar:prepare`.
 
 ## Estrutura principal
 
