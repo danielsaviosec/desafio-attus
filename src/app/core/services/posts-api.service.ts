@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Post } from '../models/post.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostsApiService {
   private readonly http = inject(HttpClient);

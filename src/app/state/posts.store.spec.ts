@@ -8,7 +8,7 @@ describe('PostsStore', () => {
   it('deve carregar posts com sucesso', fakeAsync(() => {
     const mockPosts: Post[] = [
       { userId: 1, id: 1, title: 'A', body: 'B' },
-      { userId: 2, id: 2, title: 'C', body: 'D' }
+      { userId: 2, id: 2, title: 'C', body: 'D' },
     ];
 
     TestBed.configureTestingModule({
@@ -17,10 +17,10 @@ describe('PostsStore', () => {
         {
           provide: PostsApiService,
           useValue: {
-            getPosts: jest.fn().mockReturnValue(of(mockPosts))
-          }
-        }
-      ]
+            getPosts: jest.fn().mockReturnValue(of(mockPosts)),
+          },
+        },
+      ],
     });
 
     const store = TestBed.inject(PostsStore);
@@ -40,12 +40,10 @@ describe('PostsStore', () => {
         {
           provide: PostsApiService,
           useValue: {
-            getPosts: jest.fn().mockReturnValue(
-              throwError(() => new Error('Falha na API'))
-            )
-          }
-        }
-      ]
+            getPosts: jest.fn().mockReturnValue(throwError(() => new Error('Falha na API'))),
+          },
+        },
+      ],
     });
 
     const store = TestBed.inject(PostsStore);
@@ -65,10 +63,10 @@ describe('PostsStore', () => {
         {
           provide: PostsApiService,
           useValue: {
-            getPosts: jest.fn().mockReturnValue(throwError(() => 'erro'))
-          }
-        }
-      ]
+            getPosts: jest.fn().mockReturnValue(throwError(() => 'erro')),
+          },
+        },
+      ],
     });
 
     const store = TestBed.inject(PostsStore);

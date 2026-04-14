@@ -9,7 +9,7 @@ describe('AppComponent', () => {
     items: signal([]),
     loading: signal(false),
     error: signal<string | null>(null),
-    load: jest.fn()
+    load: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -17,10 +17,7 @@ describe('AppComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [
-        provideNoopAnimations(),
-        { provide: PostsStore, useValue: mockPostsStore }
-      ]
+      providers: [provideNoopAnimations(), { provide: PostsStore, useValue: mockPostsStore }],
     }).compileComponents();
   });
 
