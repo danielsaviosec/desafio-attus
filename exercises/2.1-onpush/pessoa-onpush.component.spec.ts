@@ -17,7 +17,7 @@ describe('Exercício 2.1 — Change Detection e OnPush', () => {
 
     tick(500);
 
-    expect(fixture.componentInstance.texto).toBe('Nome: Daniel Savio  ');
+    expect(fixture.componentInstance.texto).toBe('Nome: Daniel Savio');
     fixture.detectChanges();
     expect(compiled.textContent?.trim()).toBe('Nome: Daniel Savio');
     discardPeriodicTasks();
