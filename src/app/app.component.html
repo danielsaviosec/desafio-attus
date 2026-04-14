@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  {{ title }}
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" (click)="recarregarPosts()">
+    Recarregar
+  </button>
+</mat-toolbar>
+
+<main class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Integração REST com Signal Store</mat-card-title>
+      <mat-card-subtitle>
+        Exemplo com RxJS, NgRx Signals e Angular Material
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      @if (postsStore.loading()) {
+        <div class="loading">
+          <mat-spinner diameter="36"></mat-spinner>
+          <span>Carregando posts...</span>
+        </div>
+      } @else if (postsStore.error()) {
+        <p class="error">{{ postsStore.error() }}</p>
+      } @else {
+        <mat-list role="list">
+          @for (post of postsStore.items(); track post.id) {
+            <mat-list-item role="listitem">
+              <span matListItemTitle>{{ post.title }}</span>
+              <span matListItemLine>{{ post.body }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+      }
+    </mat-card-content>
+  </mat-card>
+</main>
