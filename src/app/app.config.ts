@@ -15,8 +15,8 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     provideStoreDevtools({
       maxAge: 25,
-      logOnly: false
+      logOnly: false,
     }),
-    provideAnimationsAsync()
-  ]
+    provideAnimationsAsync(),
+  ],
 };
