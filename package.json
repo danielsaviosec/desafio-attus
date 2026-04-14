@@ -14,6 +14,7 @@
     "test": "jest --watchman=false",
     "test:watch": "jest --watch --watchman=false",
     "test:coverage": "jest --coverage --runInBand --watchman=false",
+    "test:exercises": "jest --config jest.exercises.config.js --watchman=false",
     "sonar:prepare": "npm run test:coverage",
     "sonar:scan": "sonar-scanner",
     "prepare": "husky"
@@ -21,11 +22,11 @@
   "private": true,
   "lint-staged": {
     "*.ts": [
-      "eslint --fix",
-      "prettier --write"
+      "npm exec -- eslint --fix",
+      "npm exec -- prettier --write"
     ],
     "*.{html,scss,css,md,json,yml,yaml}": [
-      "prettier --write"
+      "npm exec -- prettier --write"
     ]
   },
   "dependencies": {
