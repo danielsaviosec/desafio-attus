@@ -57,7 +57,7 @@ describe('UserFormDialogComponent', () => {
   it('cancelar should close without value', () => {
     const fixture = montarComponente({ mode: 'create' });
     fixture.componentInstance.cancelar();
-    expect(fecharDialogo).toHaveBeenCalledWith(undefined);
+    expect(fecharDialogo).toHaveBeenCalledWith();
   });
 
   it('salvar should mark touched when invalid', () => {

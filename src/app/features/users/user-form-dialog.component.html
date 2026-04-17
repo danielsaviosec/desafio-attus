@@ -20,7 +20,7 @@
 
     <mat-form-field appearance="fill" class="full">
       <mat-label>Nome completo</mat-label>
-      <input matInput formControlName="nome" autocomplete="name" />
+      <input matInput type="text" formControlName="nome" autocomplete="name" />
       @if (
         formularioUsuario.controls.nome.hasError('required') &&
         formularioUsuario.controls.nome.touched
@@ -46,7 +46,7 @@
 
     <mat-form-field appearance="fill" class="fone">
       <mat-label>Número do telefone</mat-label>
-      <input matInput formControlName="telefone" inputmode="tel" autocomplete="tel" />
+      <input matInput type="tel" formControlName="telefone" inputmode="tel" autocomplete="tel" />
       @if (
         formularioUsuario.controls.telefone.hasError('required') &&
         formularioUsuario.controls.telefone.touched

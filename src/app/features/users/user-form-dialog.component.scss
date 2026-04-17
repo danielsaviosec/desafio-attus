@@ -1,13 +1,13 @@
 .btn-save {
   min-width: 108px;
-  background-color: #2196f3 !important;
+  background-color: #1565c0 !important;
   color: #fff !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18) !important;
 }
 
 .btn-save[disabled] {
-  background-color: rgba(0, 0, 0, 0.12) !important;
-  color: rgba(0, 0, 0, 0.38) !important;
+  background-color: #e0e0e0 !important;
+  color: #616161 !important;
   box-shadow: none !important;
 }
 
@@ -40,7 +40,7 @@
   margin: 8px 0 0;
   font-size: 13px;
   font-style: italic;
-  color: #2196f3;
+  color: #0d47a1;
 }
 
 @media (max-width: 600px) {
