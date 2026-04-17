@@ -7,7 +7,7 @@ export class Produto {
 }
 
 export class Verdureira {
-  private produtos: Produto[] = [
+  private readonly produtos: Produto[] = [
     new Produto(1, 'Maçã', 20),
     new Produto(2, 'Laranja', 0),
     new Produto(3, 'Limão', 20),

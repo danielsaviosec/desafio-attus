@@ -1,0 +1,56 @@
+.btn-save {
+  min-width: 108px;
+  background-color: #1565c0 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18) !important;
+}
+
+.btn-save[disabled] {
+  background-color: #e0e0e0 !important;
+  color: #616161 !important;
+  box-shadow: none !important;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.75fr;
+  gap: 0 16px;
+  padding-top: 8px;
+  min-width: 0;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.cpf {
+  grid-column: 1 / 2;
+}
+
+.fone {
+  grid-column: 2 / 3;
+}
+
+.tipo {
+  grid-column: 3 / 4;
+}
+
+.hint {
+  grid-column: 1 / -1;
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-style: italic;
+  color: #0d47a1;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cpf,
+  .fone,
+  .tipo {
+    grid-column: 1 / -1;
+  }
+}

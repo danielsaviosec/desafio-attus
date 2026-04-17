@@ -1,0 +1,62 @@
+<div class="users-page">
+  <mat-toolbar class="users-toolbar">
+    <button mat-icon-button type="button" class="toolbar-icon" aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="toolbar-brand">USUÁRIOS</span>
+    <span class="toolbar-flex"></span>
+    <mat-form-field appearance="fill" class="search-field" subscriptSizing="dynamic">
+      <mat-icon matPrefix class="search-prefix">search</mat-icon>
+      <input matInput [formControl]="campoBuscaPorNome" placeholder="Pesquisar..." />
+    </mat-form-field>
+  </mat-toolbar>
+
+  <div class="users-body">
+    <h2 class="section-heading">Usuários cadastrados</h2>
+
+    @if (usersStore.loading()) {
+      <div class="state-block">
+        <mat-spinner diameter="40"></mat-spinner>
+        <span>Carregando usuários...</span>
+      </div>
+    } @else if (usersStore.error()) {
+      <p class="error-message" role="alert">{{ usersStore.error() }}</p>
+    } @else if (usersStore.filteredItems().length === 0) {
+      <p class="empty-message">Nenhum usuário encontrado para esta pesquisa.</p>
+    } @else {
+      <ul class="user-list">
+        @for (usuario of usersStore.filteredItems(); track usuario.id) {
+          <li class="user-card">
+            <mat-icon class="user-avatar" aria-hidden="true">person</mat-icon>
+            <span class="user-name">{{ usuario.nome }}</span>
+            <span class="user-email">{{ usuario.email }}</span>
+            <button
+              mat-icon-button
+              type="button"
+              class="edit-btn"
+              aria-label="Editar usuário"
+              (click)="abrirEdicao(usuario)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </li>
+        }
+      </ul>
+    }
+
+    @if (usersStore.saveError()) {
+      <p class="error-message subtle" role="alert">{{ usersStore.saveError() }}</p>
+    }
+  </div>
+
+  <button
+    mat-fab
+    color="warn"
+    class="fab-add"
+    type="button"
+    aria-label="Adicionar novo usuário"
+    (click)="abrirCadastro()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
