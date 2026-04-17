@@ -35,7 +35,7 @@ import { BuscarPessoaService } from './buscar-pessoa.service';
   `,
 })
 export class BuscarPessoaComponent {
-  private loadingSubject = new BehaviorSubject<boolean>(false);
+  private readonly loadingSubject = new BehaviorSubject<boolean>(false);
 
   readonly buscarControl = new FormControl('', { nonNullable: true });
   readonly loading$ = this.loadingSubject.asObservable();
@@ -57,5 +57,5 @@ export class BuscarPessoaComponent {
       );
     }),
   );
-  constructor(private buscarPessoaService: BuscarPessoaService) {}
+  constructor(private readonly buscarPessoaService: BuscarPessoaService) {}
 }
