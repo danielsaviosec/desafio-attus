@@ -1,0 +1,184 @@
+.users-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.users-toolbar {
+  flex-shrink: 0;
+  background: #616161 !important;
+  color: #fff;
+  padding: 8px 12px;
+  gap: 8px;
+  align-items: center;
+}
+
+.toolbar-icon {
+  color: inherit;
+}
+
+.toolbar-brand {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-size: 16px;
+}
+
+.toolbar-flex {
+  flex: 1 1 auto;
+  min-width: 8px;
+}
+
+.search-field {
+  flex: 0 1 420px;
+  max-width: 50vw;
+  margin-bottom: 0;
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+  }
+
+  ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  ::ng-deep .mdc-line-ripple {
+    display: none;
+  }
+
+  ::ng-deep .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 40px;
+  }
+
+  ::ng-deep .mat-mdc-input-element {
+    color: #fff;
+  }
+
+  ::ng-deep .mat-mdc-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  ::ng-deep .mat-mdc-form-field-focus-overlay {
+    opacity: 0;
+  }
+}
+
+.search-prefix {
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 4px;
+}
+
+.users-body {
+  flex: 1;
+  padding: 24px 24px 96px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.section-heading {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #424242;
+}
+
+.user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.user-avatar {
+  color: #757575;
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #212121;
+  min-width: 120px;
+}
+
+.user-email {
+  flex: 1;
+  color: #616161;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.edit-btn {
+  flex-shrink: 0;
+  color: #616161;
+}
+
+.state-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  color: #616161;
+}
+
+.error-message {
+  color: #c62828;
+  margin: 16px 0;
+
+  &.subtle {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+}
+
+.empty-message {
+  color: #757575;
+  margin: 16px 0;
+}
+
+.fab-add {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2;
+  background-color: #e53935 !important;
+  color: #fff !important;
+  box-shadow:
+    0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14) !important;
+}
+
+@media (max-width: 720px) {
+  .user-card {
+    flex-wrap: wrap;
+  }
+
+  .user-email {
+    flex-basis: 100%;
+    padding-left: 40px;
+  }
+
+  .search-field {
+    max-width: none;
+    flex: 1 1 160px;
+  }
+}

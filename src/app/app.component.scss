@@ -1,31 +1,4 @@
 :host {
   display: block;
-  min-height: 100vh;
-  background: #f6f8fb;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-.container {
-  max-width: 900px;
-  margin: 24px auto;
-  padding: 0 16px 24px;
-}
-
-mat-card {
-  border-radius: 12px;
-}
-
-.loading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-}
-
-.error {
-  color: #b00020;
-  font-weight: 500;
+  min-height: 100%;
 }

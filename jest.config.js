@@ -9,6 +9,7 @@ module.exports = {
     '!src/app/**/*.spec.ts',
     '!src/app/app.config.ts',
     '!src/app/app.routes.ts',
+    '!src/app/exercises/**',
   ],
   coverageDirectory: '<rootDir>/coverage',
   coverageReporters: ['text', 'html', 'lcov'],
