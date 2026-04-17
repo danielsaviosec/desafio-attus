@@ -33,7 +33,7 @@ export function cpfValidator(control: AbstractControl): ValidationErrors | null 
   if (valorBruto === null || valorBruto === undefined || valorBruto === '') {
     return null;
   }
-  const digitosSomente = String(valorBruto).replace(/\D/g, '');
+  const digitosSomente = String(valorBruto).replaceAll(/\D/g, '');
   if (digitosSomente.length !== 11) {
     return { cpf: true };
   }
@@ -45,11 +45,36 @@ export function brazilPhoneValidator(control: AbstractControl): ValidationErrors
   if (valorBruto === null || valorBruto === undefined || valorBruto === '') {
     return null;
   }
-  const digitosSomente = String(valorBruto).replace(/\D/g, '');
+  const digitosSomente = String(valorBruto).replaceAll(/\D/g, '');
   if (digitosSomente.length < 10 || digitosSomente.length > 11) {
     return { telefone: true };
   }
   return null;
+}
+
+function emailTemFormatoBasicoAceitavel(enderecoEmail: string): boolean {
+  if (enderecoEmail.length === 0 || enderecoEmail.length > 254) {
+    return false;
+  }
+  const indiceArroba = enderecoEmail.indexOf('@');
+  if (indiceArroba <= 0 || indiceArroba !== enderecoEmail.lastIndexOf('@')) {
+    return false;
+  }
+  const parteLocal = enderecoEmail.slice(0, indiceArroba);
+  const parteDominio = enderecoEmail.slice(indiceArroba + 1);
+  if (
+    parteLocal.includes(' ') ||
+    parteDominio.includes(' ') ||
+    parteLocal.length === 0 ||
+    parteDominio.length === 0
+  ) {
+    return false;
+  }
+  const indiceUltimoPonto = parteDominio.lastIndexOf('.');
+  if (indiceUltimoPonto <= 0 || indiceUltimoPonto >= parteDominio.length - 1) {
+    return false;
+  }
+  return true;
 }
 
 export function strictEmailValidator(): ValidatorFn {
@@ -59,7 +84,6 @@ export function strictEmailValidator(): ValidatorFn {
       return null;
     }
     const enderecoEmail = String(valorBruto).trim();
-    const padraoEmailSimples = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return padraoEmailSimples.test(enderecoEmail) ? null : { email: true };
+    return emailTemFormatoBasicoAceitavel(enderecoEmail) ? null : { email: true };
   };
 }

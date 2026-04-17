@@ -24,9 +24,9 @@
     } @else if (usersStore.filteredItems().length === 0) {
       <p class="empty-message">Nenhum usuário encontrado para esta pesquisa.</p>
     } @else {
-      <ul class="user-list" role="list">
+      <ul class="user-list">
         @for (usuario of usersStore.filteredItems(); track usuario.id) {
-          <li class="user-card" role="listitem">
+          <li class="user-card">
             <mat-icon class="user-avatar" aria-hidden="true">person</mat-icon>
             <span class="user-name">{{ usuario.nome }}</span>
             <span class="user-email">{{ usuario.email }}</span>

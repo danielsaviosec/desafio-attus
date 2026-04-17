@@ -78,6 +78,18 @@ describe('brazil validators', () => {
       expect(validadorEmail(new FormControl('not-an-email'))).toEqual({ email: true });
     });
 
+    it('should reject domain without dot', () => {
+      expect(validadorEmail(new FormControl('a@b'))).toEqual({ email: true });
+    });
+
+    it('should reject multiple at signs', () => {
+      expect(validadorEmail(new FormControl('a@@b.com'))).toEqual({ email: true });
+    });
+
+    it('should reject empty local part', () => {
+      expect(validadorEmail(new FormControl('@b.com'))).toEqual({ email: true });
+    });
+
     it('should return null when empty', () => {
       expect(validadorEmail(new FormControl(''))).toBeNull();
     });

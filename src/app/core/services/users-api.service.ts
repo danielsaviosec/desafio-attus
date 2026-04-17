@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, switchMap, timer } from 'rxjs';
-import { PhoneType, User, UserDraft } from '../models/user.model';
+import { User, UserDraft } from '../models/user.model';
+
+let sequenciaIdentificadorInterno = 0;
 
 function gerarIdentificadorUnico(): string {
-  return `u-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  const apiCrypto = globalThis.crypto;
+  if (typeof apiCrypto?.randomUUID === 'function') {
+    return `u-${apiCrypto.randomUUID()}`;
+  }
+  sequenciaIdentificadorInterno += 1;
+  return `u-${Date.now().toString(36)}-${sequenciaIdentificadorInterno.toString(36)}`;
 }
 
 function normalizarRascunho(rascunho: UserDraft): Omit<User, 'id'> & { id?: string } {
@@ -11,8 +18,8 @@ function normalizarRascunho(rascunho: UserDraft): Omit<User, 'id'> & { id?: stri
     id: rascunho.id,
     nome: rascunho.nome.trim(),
     email: rascunho.email.trim().toLowerCase(),
-    cpf: rascunho.cpf.replace(/\D/g, ''),
-    telefone: rascunho.telefone.replace(/\D/g, ''),
+    cpf: rascunho.cpf.replaceAll(/\D/g, ''),
+    telefone: rascunho.telefone.replaceAll(/\D/g, ''),
     tipoTelefone: rascunho.tipoTelefone,
   };
 }
@@ -52,7 +59,7 @@ export class UsersApiService {
               email: dadosNormalizados.email,
               cpf: dadosNormalizados.cpf,
               telefone: dadosNormalizados.telefone,
-              tipoTelefone: dadosNormalizados.tipoTelefone as PhoneType,
+              tipoTelefone: dadosNormalizados.tipoTelefone,
             };
             this.usuariosEmMemoria[indiceUsuarioExistente] = usuarioAtualizado;
             return of({ ...usuarioAtualizado });
@@ -65,7 +72,7 @@ export class UsersApiService {
           email: dadosNormalizados.email,
           cpf: dadosNormalizados.cpf,
           telefone: dadosNormalizados.telefone,
-          tipoTelefone: dadosNormalizados.tipoTelefone as PhoneType,
+          tipoTelefone: dadosNormalizados.tipoTelefone,
         };
         this.usuariosEmMemoria.push(usuarioNovo);
         return of({ ...usuarioNovo });

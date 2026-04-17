@@ -89,6 +89,6 @@ export class UserFormDialogComponent {
   }
 
   cancelar(): void {
-    this.#referenciaDialogo.close(undefined);
+    this.#referenciaDialogo.close();
   }
 }
